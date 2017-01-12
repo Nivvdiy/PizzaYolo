@@ -1,0 +1,15 @@
+<button onClick="makePizza('Margharita')">Margharita</button>
+<button onClick="makePizza('Regina')">Regina</button>
+
+<script src="pizzayolo.js"></script>
+<script>
+    const recipesService = new RecipesService();
+    const pizzeriaService = new PizzeriaService(recipesService);
+
+    pizzeriaService.start(1000);
+
+    function makePizza (name) {
+        pizzeriaService.sendPizza(name);
+    }
+
+</script>

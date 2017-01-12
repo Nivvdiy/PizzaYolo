@@ -1,0 +1,19 @@
+{
+    "recipes": [
+        {
+            "id":1,
+            "name": "Savoyarde",
+            "toppings": ["Fromage","Patate","Lardon"]
+        },
+        {
+            "id":2,
+            "name": "Raclette",
+            "toppings": ["Fromage","Patate","Bacon"]
+        },
+        {
+            "id": 3,
+            "name": "4 Fromages",
+            "toppings": ["Fromage","Fromage2","Fromage3","Fromage4"]
+        }
+    ]
+}
