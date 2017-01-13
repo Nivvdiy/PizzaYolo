@@ -1,4 +1,6 @@
-class RecipesService{
+import _ from 'lodash';
+
+export class RecipesService{
     constructor(){}
 
     getRecipes() {
@@ -7,6 +9,18 @@ class RecipesService{
         return fetch('http://localhost:3000/recipes')
         .then(response => response.json())
         .then(recipes => this.recipes = recipes);
+    }
+
+    getToppings() {
+        return this.getRecipes()
+        .then(recipes => 
+            _(recipes.map(recipe => recipe.toppings))
+                .flatten()
+                .uniq()
+                .value()
+        )
+        .catch(this.handleError);
+        
     }
 
     isRecipeCompliant(recipe, pizza){
@@ -55,35 +69,5 @@ class RecipesService{
 
     handleError(err) {
         alert('Une erreur est survenue');
-    }
-}
-
-class PizzeriaService{
-    constructor(recipesService){
-        this.pool = [];
-        this.recipesService = recipesService;
-    }
-
-    start(time){
-        // every time seconds add a new recipe name to the pool
-        this.recipesService.getRecipesNames()
-        .then(recipesNames => {
-//            Math.floor(Math.random()*6) // entier alétoire entre 0 et 5
-            const intervalID = setInterval(() => {
-                this.pool.push(recipesNames[Math.floor(Math.random()*recipesNames.length)]);
-                console.log(this.pool);
-                if(this.pool.length>=10){
-                    console.log("GAME OVER");
-                    clearInterval(intervalID);
-                }
-            }, time);
-
-        })
-    }
-
-    // { id: 1, toppings: ['', ''] }
-    sendPizza (pizzaName) {
-        const idx = this.pool.indexOf(pizzaName);
-        if (idx !== -1) this.pool.splice(idx, 1);
     }
 }
