@@ -9,24 +9,56 @@
 
 <div class="container" style="margin:3em;">
     <div class="row">
-        <div class="col-md-9">
-            <div class="col-md-10" id="pizza" style="width:300px;height:300px;border:3px solid red;border-radius:50%;"></div>
-            <div class="col-md-2"><button id="sendbtn" class="btn">Envoyer</button><div class="col-md-12" id="currentTopping"></div></div>
-            <div class="col-md-12"id="toppings"></div>
-        </div>
-
-        <div class="col-md-3">
-
-
-            <button id="startbtn" class="btn">START</button>
-            <div style="display:none;" id="score">Score = <strong id="scoreBoard"></strong></div>
-            <div style="display:none;" id="pool">
-                <h3>Pool</h3>
-                <div class="pizzas"></div>
+        <div class="col-lg-12">
+            <div class="col-lg-6">
+                <div class="panel panel-success" id="bestScores">
+                    <div class="panel-heading">Meilleurs scores</div>
+                    <table class="table" id="toplist">
+                        <tr>
+                            <th>Pseudo</th>
+                            <th>Score</th>
+                            <th>Classement</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            
-            <h3>Recette</h3>
-            <ul id="recipes"></ul>
+            <div class="col-lg-6">
+                <div class="panel panel-success" id="userBestScores">
+                    <div class="panel-heading">Vos meilleurs score</div>
+                    <table class="table" id="userToplist">
+                        <tr>
+                            <th>Scores</th>
+                            <th id="username"></th>
+                            <th id="userRank"></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+                <div class="panel panel-info" id="score">
+                    <div class="panel-heading">Score</div>
+                    <div class="panel-body" id="scoreBoard">0</div>
+                </div>
+            <div class="panel panel-warning" id="pool">
+                <div class="panel-heading">Commandes</div>
+                <div class="panel-body pizzas" style="height: 16em"></div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+
+            <div class="col-lg-8" id="pizza" style="width:400px;height:400px;border:3px solid red;border-radius:50%;"></div>
+            <div class="col-lg-4">
+                <button id="startbtn" class="btn btn-success btn-sm">START</button>
+                <button id="sendbtn" class="btn btn-primary btn-sm" style="display: none;">Envoyer</button><div class="col-lg-12" id="currentTopping"></div>
+            </div>
+            <div class="col-lg-12"id="toppings"></div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">Recettes</div>
+                <div class="panel-body" id="recipes"></div>
+            </div>
         </div>
 
     </div>
@@ -34,6 +66,7 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="app.bundle.js"></script>
 </body>
 </html>
