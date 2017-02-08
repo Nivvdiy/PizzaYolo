@@ -99,7 +99,7 @@ export class PizzeriaService {
             if(this.user.id){
                 user.id = this.user.id;
                 uri += this.user.id;
-                method = "PUT";
+                method = "PATCH";
             } else {
                 method = "POST";
             }
